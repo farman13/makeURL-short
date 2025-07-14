@@ -9,11 +9,7 @@ export const createURL = async (req, res) => {
         const originalURL = req.body.url;
         const sub = req.body.sub;
         const customUrl = req.body.customUrl;
-        //  console.log(originalURL);
-        console.log("custum", customUrl);
-        //  console.log(sub)
         const user = await User.findOne({ sub: sub });
-        // console.log("USER", user)
         if (user && customUrl) {
             const shorturl = customUrl;
             await shortUrl.create({
